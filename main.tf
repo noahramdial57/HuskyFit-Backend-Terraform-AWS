@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.5.0"
+      version = ">= 3.44.0"
 
     }
   }
@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "my-tf-test-bucket" {
-  bucket = "huskyfit-bucket-test-tf" # name has to be unique
+  bucket = "dininghall-data-cache" # caching bucket
 
 }
 
@@ -21,7 +21,7 @@ resource "aws_s3_bucket" "my-tf-test-bucket" {
 resource "aws_budgets_budget" "monthly-budge" {
   name              = "HuskyFit-Budget"
   budget_type       = "COST"
-  limit_amount      = "10"
+  limit_amount      = "1"
   limit_unit        = "USD"
   time_period_start = "2023-04-01_00:00"
   time_unit         = "MONTHLY"
